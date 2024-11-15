@@ -70,7 +70,7 @@
 - You can create, edit, and delete notes via the admin panel or the API.
 - All note-related actions will automatically update the Redis cache for efficient data retrieval.
 
-## Testing
+## Testing - 80+% COVERAGE
 
 To run the tests, use `make test`:
 
