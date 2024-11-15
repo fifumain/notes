@@ -16,8 +16,10 @@ from .services import (
 
 class NoteViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
+    """ViewSet to econom develop time and KISS"""
 
     def list(self, request):
+        """Get a list of notes from cache, or with ORM in case cache is not available"""
         notes = get_cached_notes(request.user)
         return Response(notes, status=status.HTTP_200_OK)
 
@@ -29,7 +31,9 @@ class NoteViewSet(viewsets.ViewSet):
             return Response(e.detail, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
-
+        """
+        gets the only note by id
+        """
         note = get_note_by_id(user=request.user, note_id=pk)
         if note:
             return Response(NoteSerializer(note).data, status=status.HTTP_200_OK)

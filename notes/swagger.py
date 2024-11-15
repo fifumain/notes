@@ -1,8 +1,7 @@
-# core_apps/notes_app/swagger.py
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 
-# Конфигурация Swagger
+# Swagger configuration
 schema_view = get_schema_view(
     openapi.Info(
         title="Notes API",

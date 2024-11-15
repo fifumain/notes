@@ -4,6 +4,8 @@ from rest_framework.exceptions import ValidationError
 from .models import Note
 from .serializers import NoteSerializer
 
+"""List of simple srvice functions for view file"""
+
 
 def get_note_by_id(note_id, user):
     return Note.objects.get(id=note_id, user=user)
