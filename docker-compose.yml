@@ -41,8 +41,6 @@ services:
     networks:
       -  notes-api
 
-  
-
   nginx:
     restart: always
     depends_on:
