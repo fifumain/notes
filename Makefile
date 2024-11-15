@@ -25,30 +25,5 @@ collectstatic:
 superuser:
 	docker compose run --rm api python manage.py createsuperuser
 
-down-v:
-	docker compose down -v
-
-
-authors-db:
-	docker composeexec postgres psql --username=postgres --dbname=notes_db
-
-flake8:
-	docker compose exec api flake8 .
-
-black-check:
-	docker compose exec api black --check --exclude=migrations .
-
-black-diff:
-	docker compose exec api black --diff --exclude=migrations .
-
-black:
-	docker compose exec api black --exclude=migrations .
-
-isort-check:
-	docker compose exec api isort . --check-only --skip venv --skip migrations
-
-isort-diff:
-	docker compose exec api isort . --diff --skip venv --skip migrations
-
-isort:
-	docker compose exec api isort . --skip venv --skip migrations
+test:
+	docker compose run --rm api pytest -p no:warnings --cov=. --cov-report html
